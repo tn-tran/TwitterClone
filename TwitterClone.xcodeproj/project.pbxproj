@@ -8,20 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		FF5A26B821575C4600658335 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A26B721575C4600658335 /* AppDelegate.swift */; };
-		FF5A26BA21575C4600658335 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A26B921575C4600658335 /* ViewController.swift */; };
-		FF5A26BD21575C4600658335 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5A26BB21575C4600658335 /* Main.storyboard */; };
 		FF5A26BF21575C4900658335 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5A26BE21575C4900658335 /* Assets.xcassets */; };
 		FF5A26C221575C4900658335 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5A26C021575C4900658335 /* LaunchScreen.storyboard */; };
+		FF5A26CA21575F3300658335 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A26C921575F3300658335 /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FF5A26B421575C4600658335 /* TwitterClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwitterClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF5A26B721575C4600658335 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FF5A26B921575C4600658335 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FF5A26BC21575C4600658335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FF5A26BE21575C4900658335 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF5A26C121575C4900658335 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF5A26C321575C4900658335 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF5A26C921575F3300658335 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +53,10 @@
 			isa = PBXGroup;
 			children = (
 				FF5A26B721575C4600658335 /* AppDelegate.swift */,
-				FF5A26B921575C4600658335 /* ViewController.swift */,
-				FF5A26BB21575C4600658335 /* Main.storyboard */,
 				FF5A26BE21575C4900658335 /* Assets.xcassets */,
 				FF5A26C021575C4900658335 /* LaunchScreen.storyboard */,
 				FF5A26C321575C4900658335 /* Info.plist */,
+				FF5A26C921575F3300658335 /* HomeController.swift */,
 			);
 			path = TwitterClone;
 			sourceTree = "<group>";
@@ -124,7 +121,6 @@
 			files = (
 				FF5A26C221575C4900658335 /* LaunchScreen.storyboard in Resources */,
 				FF5A26BF21575C4900658335 /* Assets.xcassets in Resources */,
-				FF5A26BD21575C4600658335 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,22 +131,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF5A26BA21575C4600658335 /* ViewController.swift in Sources */,
 				FF5A26B821575C4600658335 /* AppDelegate.swift in Sources */,
+				FF5A26CA21575F3300658335 /* HomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FF5A26BB21575C4600658335 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FF5A26BC21575C4600658335 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FF5A26C021575C4900658335 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
