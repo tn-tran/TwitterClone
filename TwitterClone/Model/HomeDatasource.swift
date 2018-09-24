@@ -13,8 +13,12 @@ class HomeDatasource: Datasource {
 	let users: [User] = {
 		let tienUser = User(name: "Tien Tran", username: "@tieen_tran", bioText: "SOME MORE BIO TEXT", profileImage: UIImage(named: "profile_image")!)
 		
-		let testUser = User(name: "TEST", username: "@TEST", bioText: "TESTTEST", profileImage: UIImage(named: "profile_image")!)
-		return [tienUser, testUser]
+		let testUser = User(name: "TEST", username: "@TEST", bioText: "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ", profileImage: UIImage(named: "profile_image")!)
+		
+		
+		let testUser1 = User(name: "Jen", username: "@SUP", bioText: "ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC C ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ", profileImage: UIImage(named: "profile_image")!)
+		
+		return [tienUser, testUser, testUser1]
 	}()
 //	let words = ["user1", "user2", "user3"]
 	

@@ -51,6 +51,7 @@ class UserCell: DatasourceCell {
 		textView.font = UIFont.systemFont(ofSize: 15)
 		textView.backgroundColor = .clear
 		
+		
 		return textView
 	}()
 	
@@ -72,6 +73,7 @@ class UserCell: DatasourceCell {
 	
 	override func setupViews() {
 		super.setupViews()
+		
 		
 		separatorLineView.isHidden = false
 		separatorLineView.backgroundColor = UIColor(r: 230, g: 230, b: 230)
