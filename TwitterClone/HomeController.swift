@@ -31,6 +31,8 @@ class WordCell: UICollectionViewCell {
 		wordLabel.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
 		wordLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
 		wordLabel.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+		
+		
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -74,7 +76,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
 			return header
 		} else {
 			let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerID, for: indexPath)
-			footer.backgroundColor = .blue
+			footer.backgroundColor = .green
 			return footer
 		}
 	}
