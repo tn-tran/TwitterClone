@@ -8,18 +8,25 @@
 
 import Foundation
 import LBTAComponents
+import TRON
+import SwiftyJSON
 
-class HomeDatasource: Datasource {
-	let users: [User] = {
-		let tienUser = User(name: "Tien Tran", username: "@tieen_tran", bioText: "SOME MORE BIO TEXT", profileImage: UIImage(named: "profile_image")!)
+class HomeDatasource: Datasource, JSONDecodable {
+	let users: [User]
+	required init(json: JSON) throws {
+		var users = [User]()
 		
-		let testUser = User(name: "TEST", username: "@TEST", bioText: "TEST TEST TEST TEST TEST TEST TEST TEST TEST TEST ", profileImage: UIImage(named: "profile_image")!)
-		
-		
-		let testUser1 = User(name: "Jen", username: "@SUP", bioText: "ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC C ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ABC ", profileImage: UIImage(named: "profile_image")!)
-		
-		return [tienUser, testUser, testUser1]
-	}()
+		let array = json["users"].array
+		for userJson in array! {
+			let name = userJson["name"].stringValue
+			let userName = userJson["username"].stringValue
+			let bio = userJson["bio"].stringValue
+			let user = User(name: name, username: userName, bioText: bio, profileImage: UIImage())
+			users.append(user)
+			
+		}
+		self.users = users
+	}
 //	let words = ["user1", "user2", "user3"]
 	let tweets: [Tweet] = {
 		let tienUser = User(name: "Tien Tran", username: "@tieen_tran", bioText: "SOME MORE BIO TEXT", profileImage: UIImage(named: "profile_image")!)

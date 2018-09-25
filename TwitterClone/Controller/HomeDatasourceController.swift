@@ -9,6 +9,8 @@
 import Foundation
 import LBTAComponents
 import UIKit
+import TRON
+import SwiftyJSON
 
 
 
@@ -19,13 +21,54 @@ class HomeDatasourceController: DatasourceController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		setupNavigationBarItems()
-		let homeDatasource = HomeDatasource()
 		collectionView.backgroundColor = UIColor(r: 232, g: 236, b: 241)
-		self.datasource = homeDatasource
-		
+		setupNavigationBarItems()
+//		let homeDatasource = HomeDatasource()
+//		self.datasource = homeDatasource
+	fetchHomeFeed()
 	}
 
+	
+	let tron = TRON(baseURL: "https://api.letsbuildthatapp.com")
+	
+	class Home: JSONDecodable {
+		let users: [User]
+		required init(json: JSON) throws {
+			var users = [User]()
+			
+			let array = json["users"].array
+			for userJson in array! {
+				let name = userJson["name"].stringValue
+				let userName = userJson["username"].stringValue
+				let bio = userJson["bio"].stringValue
+				let user = User(name: name, username: userName, bioText: bio, profileImage: UIImage())
+				users.append(user)
+				
+			}
+			self.users = users
+		}
+	}
+	class JSONError: JSONDecodable {
+		required init(json: JSON) throws {
+			print("JSON ERROR:")
+		}
+	}
+	
+	fileprivate func fetchHomeFeed() {
+		// start our json fetch
+		
+		let request: APIRequest<HomeDatasource, JSONError> = tron.swiftyJSON.request("/twitter/home")
+		request.perform(withSuccess: { (homeDataSource) in
+			print("Successfully fetched our json object")
+			self.datasource = homeDataSource
+			print(homeDataSource.users.count)
+		}) { (error) in
+			print("failed to fetch json")
+		}
+		// alternative, use tron instead of URLSESSION
+//		URLSession.shared.dataTask(with: <#T##URL#>, completionHandler: <#T##(Data?, URLResponse?, Error?) -> Void#>)
+	}
+	
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
 		return 0
