@@ -19,6 +19,7 @@
 		FF5A26D92158A1B400658335 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A26D82158A1B400658335 /* UserCell.swift */; };
 		FF5A26DB2159A77F00658335 /* HomeDatasourceController+navbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A26DA2159A77F00658335 /* HomeDatasourceController+navbar.swift */; };
 		FF5A26DD2159AD7000658335 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A26DC2159AD7000658335 /* TweetCell.swift */; };
+		FF5A26DF2159BF1000658335 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5A26DE2159BF1000658335 /* Tweet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		FF5A26D82158A1B400658335 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		FF5A26DA2159A77F00658335 /* HomeDatasourceController+navbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeDatasourceController+navbar.swift"; sourceTree = "<group>"; };
 		FF5A26DC2159AD7000658335 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		FF5A26DE2159BF1000658335 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				FF5A26D22158695600658335 /* HomeDatasource.swift */,
 				FF5A26D62158982C00658335 /* User.swift */,
+				FF5A26DE2159BF1000658335 /* Tweet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF5A26D32158695600658335 /* HomeDatasource.swift in Sources */,
+				FF5A26DF2159BF1000658335 /* Tweet.swift in Sources */,
 				FF5A26B821575C4600658335 /* AppDelegate.swift in Sources */,
 				FF5A26D72158982C00658335 /* User.swift in Sources */,
 				FF5A26DD2159AD7000658335 /* TweetCell.swift in Sources */,
