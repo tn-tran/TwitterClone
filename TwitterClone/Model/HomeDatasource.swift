@@ -10,6 +10,11 @@ import Foundation
 import LBTAComponents
 import TRON
 import SwiftyJSON
+extension Collection where Iterator.Element == JSON {
+	func decode<T: JSONDecodable>() throws -> [T] {
+		return try map{try T(json: $0)}
+	}
+}
 
 class HomeDatasource: Datasource, JSONDecodable {
 	let users: [User]
@@ -18,8 +23,12 @@ class HomeDatasource: Datasource, JSONDecodable {
 		guard let usersJsonArray = json["users"].array, let tweetsJsonArray = json["tweets"].array else {
 			throw NSError(domain: "something", code: 1, userInfo: [NSLocalizedDescriptionKey: "Parsing JSON was not valid"])
 		}
-		self.users = usersJsonArray.map({return User(json: $0)})
-		self.tweets = tweetsJsonArray.map({return Tweet(json: $0)})
+//		self.users = usersJsonArray.map({return User(json: $0)})
+//		self.tweets = tweetsJsonArray.map({return Tweet(json: $0)})
+		
+		
+		self.users = try usersJsonArray.decode()
+		self.tweets = try tweetsJsonArray.decode()
 	}
 	
 	override func footerClasses() -> [DatasourceCell.Type]? {

@@ -8,7 +8,9 @@
 
 import Foundation
 import SwiftyJSON
-struct Tweet {
+import TRON
+
+struct Tweet: JSONDecodable {
 	let user: User
 	let message: String
 	

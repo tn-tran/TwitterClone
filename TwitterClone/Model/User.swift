@@ -8,8 +8,8 @@
 
 import UIKit
 import SwiftyJSON
-
-struct User {
+import TRON
+struct User: JSONDecodable {
 	let name: String
 	let username: String
 	let bioText: String
