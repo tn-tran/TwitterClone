@@ -34,7 +34,7 @@ class HomeDatasourceController: DatasourceController {
 		errorMessageLabel.fillSuperview() // LBTA method to anchor the view
 		collectionView.backgroundColor = UIColor(r: 232, g: 236, b: 241)
 		setupNavigationBarItems()
-
+		
 		Service.sharedInstance.fetchHomeFeed { (homeDatasource, err) in
 			if let err = err {
 				self.errorMessageLabel.isHidden = false
@@ -53,23 +53,35 @@ class HomeDatasourceController: DatasourceController {
 		return 0
 	}
 	override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		
-		
-		if let user = self.datasource?.item(indexPath) as? User {
-			//user.bioText
-			// let's get an estimation of the height of our cell based on user.bioText
-			let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 8 - 10 // gave too much width, so shrink the width to get taller height
-			let size = CGSize(width: approximateWidthOfBioTextView, height: 1000)
-			let attributes: [NSAttributedString.Key: Any] = [
-			.font : UIFont.systemFont(ofSize: 15)
-			]
-			let estimatedFrame = NSString(string: user.bioText).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+		// the first section
+		if indexPath.section == 0  {
+			guard let user = self.datasource?.item(indexPath) as? User else { return .zero }
 			
-			return CGSize(width: view.frame.width, height: estimatedFrame.height + 66)
+			let estimatedHeight = estimatedHeightForText(user.bioText)
+			return CGSize(width: view.frame.width, height: estimatedHeight + 66)
+		} else if indexPath.section == 1 { // second section
+			// our tweets size estimation
+			guard let tweet = datasource?.item(indexPath) as? Tweet else { return .zero }
+			
+			let estimatedHeight = estimatedHeightForText(tweet.message)
+			return CGSize(width: view.frame.width, height: estimatedHeight + 66)
 		}
+		
 		return CGSize(width: view.frame.width, height: 200)
 		
 	}
+	
+	private func estimatedHeightForText(_ text: String) -> CGFloat {
+		let approximateWidthOfBioTextView = view.frame.width - 12 - 50 - 8 - 10 // gave too much width, so shrink the width to get taller height
+		let size = CGSize(width: approximateWidthOfBioTextView, height: 1000)
+		let attributes: [NSAttributedString.Key: Any] = [
+			.font : UIFont.systemFont(ofSize: 15)
+		]
+		let estimatedFrame = NSString(string: text).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: attributes, context: nil)
+		return estimatedFrame.height
+	}
+	
+	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 		if section == 1 {
 			return .zero
